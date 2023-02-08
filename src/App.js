@@ -19,6 +19,16 @@ import React, { Component } from 'react'
         this.setState({items:items,text: ""})
     }
   }
+  handeldelete=id=>{
+    console.log("deleted"+id)
+    const olditems=[...this.state.items]
+    console.log("olditems"+olditems)
+    const items=olditems.filter((element,i)=>{
+      return  i!==id
+    })
+    this.setState({items:items})
+
+  }
   render() {
     return (
       <div  className='container-fluid my-5'>
@@ -36,7 +46,7 @@ import React, { Component } from 'react'
                 <ul  className="list-unstyled row m3 ">
                     {
                       this.state.items.map((value,i)=>{
-                        return   <Plan value={value}/>
+                        return   <Plan  key={i} value={value}  id={i} sendData={this.handeldelete}/>
                       })
                     }          
                 </ul>
