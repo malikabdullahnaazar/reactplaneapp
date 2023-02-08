@@ -20,9 +20,7 @@ import React, { Component } from 'react'
     }
   }
   handeldelete=id=>{
-    console.log("deleted"+id)
     const olditems=[...this.state.items]
-    console.log("olditems"+olditems)
     const items=olditems.filter((element,i)=>{
       return  i!==id
     })
@@ -42,8 +40,8 @@ import React, { Component } from 'react'
               <div className="col-2">
                 <button className="btn btn-warning px-3 font-weight-bold" onClick={this.handeladd}>Add</button>
               </div>
-              <div className="container-fluid">
-                <ul  className="list-unstyled row m3 ">
+              <div className="container-fluid my-3">
+                <ul  className="list-unstyled row my-7 ">
                     {
                       this.state.items.map((value,i)=>{
                         return   <Plan  key={i} value={value}  id={i} sendData={this.handeldelete}/>
